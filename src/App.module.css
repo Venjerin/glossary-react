@@ -14,12 +14,6 @@ div h1 {
   color: transparent; /* Делает текст прозрачным */
   background-size: 200% 100%; /* Размер градиента (ширина больше, чем надо) */
   background-position: 00%; /* Начальная позиция градиента (с крайней правой стороны) */
-  animation: gradientChange 5s linear infinite; /* Запускает анимацию */
-}
-
-@keyframes gradientChange {
-  0% { background-position: 100%; } /* Начало анимации (крайнее правое положение) */
-  100% { background-position: -100%; } /* Конец анимации (крайнее левое положение) */
 }
 
 .termList {
