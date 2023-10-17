@@ -1,1 +1,19 @@
-<iframe src="public/index.html"></iframe>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Вставка HTML через JavaScript</title>
+</head>
+<body>
+    <h1>Это главная страница</h1>
+    
+    <div id="container"></div>
+    
+    <script>
+        fetch('src/index.js')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('container').innerHTML = html;
+            });
+    </script>
+</body>
+</html>
