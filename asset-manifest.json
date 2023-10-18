@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/glossary-react/static/css/main.d0e4d983.css",
+    "main.js": "/glossary-react/static/js/main.c27e657f.js",
+    "index.html": "/glossary-react/index.html",
+    "main.d0e4d983.css.map": "/glossary-react/static/css/main.d0e4d983.css.map",
+    "main.c27e657f.js.map": "/glossary-react/static/js/main.c27e657f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d0e4d983.css",
+    "static/js/main.c27e657f.js"
+  ]
+}
