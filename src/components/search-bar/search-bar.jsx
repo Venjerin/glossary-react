@@ -31,7 +31,8 @@ const SearchBar = ({setSelectedTerm, terms}) => {
   useEffect(() => {
     const handleDocumentClick = (e) => {
       if (suggestionsRef.current && !suggestionsRef.current.contains(e.target)) {
-        setSuggestions([]);
+        setSearchQuery("");
+        setFirstClick(false);
       }
     };
 
