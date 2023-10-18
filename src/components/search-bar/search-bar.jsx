@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { data } from '../../data';
 import s from './search-bar.module.css'
 
@@ -25,10 +25,25 @@ const SearchBar = ({setSelectedTerm, terms}) => {
     setSelectedTerm(suggestion);
     setSearchQuery('');
     setFirstClick(false);
-  }
+  };
+
+  const suggestionsRef = useRef(null);
+  useEffect(() => {
+    const handleDocumentClick = (e) => {
+      if (suggestionsRef.current && !suggestionsRef.current.contains(e.target)) {
+        setSuggestions([]);
+      }
+    };
+
+    document.addEventListener('click', handleDocumentClick);
+
+    return () => {
+      document.removeEventListener('click', handleDocumentClick);
+    };
+  }, []);
 
   return (
-    <div className={s.search_container}>
+    <div className={s.search_container} ref={suggestionsRef}>
       <input
         type="text"
         placeholder="Введите термин..."
