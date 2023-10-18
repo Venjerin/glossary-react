@@ -37,13 +37,13 @@ const SearchBar = ({setSelectedTerm, terms}) => {
         className={s.input}
         onClick={() => {setSuggestions(sortedData); setFirstClick(true)}}
       />
-      {!!searchQuery || firstClick && (
+      {searchQuery || firstClick ? (
         <ul className={s.suggestions}>
           {suggestions.map((suggestion, index) => (
             <li key={index} className={s.suggestion} onClick={() => handleListClick(suggestion)}>{suggestion.term}</li>
           ))}
         </ul>
-      )}
+      ) : null}
     </div>
   );
 };
