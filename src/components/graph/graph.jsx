@@ -85,19 +85,20 @@ const GraphComponent = ({terms, handleTermClick, setIsGraphOpen}) => {
     height: "600px",
     width: "100%",
     nodeHighlightBehavior: true,
+    staticgraph: true,
     node: {
       color: "blue",
       size: 120,
       highlightStrokeColor: "blue",
     },
     link: {
-      highlightColor: "lightblue",
+      highlightColor: "blue",
     },
   };
 
   const onClickNode = function (nodeId) {
     setIsGraphOpen(false);
-    handleTermClick(nodeId)
+    handleTermClick(nodeId);
   };
 
     // const onClickLink = function (source, target) {
