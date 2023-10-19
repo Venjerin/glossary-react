@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import s from './App.module.css'; // Импортируем модульные стили
 import SearchBar from './components/search-bar/search-bar';
 import { data } from './data';
+import GraphComponent from './components/graph/graph';
 
 type Term = {
   term: string;
@@ -12,6 +13,7 @@ type Term = {
 
 function App() {
   const [selectedTerm, setSelectedTerm] = useState<Term | null>(null);
+  const [isGraphOpen, setIsGraphOpen] = useState(false);
 
   const terms = data.map((item: Term) => item.term).sort();
 
@@ -59,8 +61,22 @@ function App() {
   return (
     <div className={s.app}>
       <h1 className={s.title}>Фронтенд Глоссарий</h1>
-      <SearchBar setSelectedTerm={setSelectedTerm} terms={terms}/>
-      {selectedTerm ? Term() : TermList()}
+      <button
+        className={s.termButton}
+        onClick={() => setIsGraphOpen(!isGraphOpen)}
+      >
+        {isGraphOpen ? "Выйти из графа терминов" : "Перейти к графу терминов"}
+      </button>
+      {isGraphOpen ? (
+        <div className={s.graph}>
+          <GraphComponent terms={terms} setIsGraphOpen={setIsGraphOpen}  handleTermClick={handleTermClick}/>
+        </div>
+      ) : (
+        <>
+          <SearchBar setSelectedTerm={setSelectedTerm} terms={terms} />
+          {selectedTerm ? Term() : TermList()}
+        </>
+      )}
     </div>
   );
 }

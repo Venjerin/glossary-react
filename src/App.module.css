@@ -16,6 +16,20 @@ div h1 {
   background-position: 00%; /* Начальная позиция градиента (с крайней правой стороны) */
 }
 
+div button {
+  margin-left: 10px;
+  margin-bottom:20px;
+}
+
+.graph {
+ border: 3px solid #1377e1;
+ border-radius: 50px;
+ overflow: hidden;
+ height: 650px; 
+ width: 900px;
+ margin-right: 30px;
+}
+
 .termList {
   list-style: none;
   padding: 0;
